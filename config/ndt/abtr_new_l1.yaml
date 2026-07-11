@@ -1,0 +1,188 @@
+# ============================================================
+# NDT 定位参数（自动生成模板）
+# - 对应地图: abtr_new_l1
+# - 修改数值后重启节点生效
+# ============================================================
+
+# ---------- 0. 初始化位姿 (last + fixed) ----------
+init_trans_prob_min: 2.0
+init_max_candidates_per_scan: 3
+init_try_once_per_candidate: true
+init_dedupe_xy_eps: 0.001
+init_dedupe_yaw_eps: 0.001
+init_score_soft_enable: true
+init_score_max: 0.5
+init_tp_soft: 1.8
+
+# ---------- 0.1 init re-arm（耗尽冻结后：移动 + 停稳 + 冷却再重定位）----------
+init_rearm_enable: true
+init_rearm_dist: 2.0
+init_rearm_min_stop_duration: 2.0
+init_rearm_cooldown: 8.0
+
+# hard-pass(tp>=init_trans_prob_min) 时允许更“松”的 score 上限（防 tp 很强但 score 略大被卡死）
+# 建议 >= init_score_max
+init_score_relaxed_max: 0.01
+
+# ---------- 1. NDT 基本参数 ----------
+ndt_resolution: 1.0
+ndt_num_threads: 4
+ndt_target_use_known_mask_filter: false
+
+# ---------- 2. NDT 质量门控 (tp + innovation) ----------
+quality_enable: true
+quality_max_delta_trans: 1.5
+quality_max_delta_yaw_deg: 20.0
+quality_trans_prob_bad: 1.8
+quality_trans_prob_good: 1.9
+
+# ---------- 2.5 退化检测与各向异性融合（长走廊防滑移） ----------
+degen_fusion_enable: true
+degen_force_active_always: false
+degen_min_points: 80
+degen_cov_eps: 0.000001
+degen_cond_ok: 80.0
+degen_cond_bad: 350.0
+degen_cond_hyst_on: 65.0
+degen_cond_hyst_off: 60.0
+degen_lambda_min_thresh: 0.0005
+degen_alpha_w_min: 0.10
+degen_alpha_s: 0.95
+degen_alpha_yaw: 0.90
+degen_temp_reject_enter_dw_m: 0.15
+degen_ambiguity_enable: true
+degen_ambiguity_seed_offset_m: 0.80
+degen_ambiguity_score_margin: 0.003
+degen_ambiguity_tp_margin: 0.08
+degen_ambiguity_weak_sep_m: 0.50
+degen_ambiguity_strong_sep_m: 0.50
+degen_ambiguity_ndt_max_iters: 12
+degen_alpha_w_ambiguity: 0.0
+degen_alpha_s_ambiguity: 0.20
+degen_alpha_yaw_ambiguity: 0.20
+degen_block_anchor_on_ambiguity: true
+degen_block_last_pose_on_ambiguity: true
+
+# ---------- 3. 时序一致性检查（Temporal A/B） ----------
+temporal_check_enable: true
+temporal_max_dt: 1.0
+temporal_max_lin_vel: 2.5
+temporal_max_ang_vel_deg: 180.0
+temporal_reject_backtrack_enable: true
+temporal_reject_backtrack_min_speed_mps: 0.15
+temporal_reject_backtrack_dir_min_step_m: 0.005
+temporal_reject_backtrack_max_m: 0.08
+temporal_odom_max_age: 0.2
+temporal_imu_max_age: 0.2
+
+temporal_move_min: 0.10
+temporal_stuck_max: 0.03
+temporal_stop_max: 0.03
+temporal_jump_when_stop: 0.30
+
+temporal_ang_move_min_deg: 10.0
+temporal_ang_stuck_max_deg: 3.0
+temporal_ang_jump_when_stop_deg: 30.0
+
+# ---------- 4. 激光预处理（距离裁剪） ----------
+scan_min_range: 1.0
+scan_max_range: 35.0
+
+# ---------- 4.1 intensity prefilter ----------
+intensity_prefilter_enable: true
+intensity_prefilter_range_comp_p: 2.0
+intensity_prefilter_norm_min: 0.0
+intensity_prefilter_norm_max: 1000000.0
+intensity_prefilter_keep_ratio: 0.30
+intensity_prefilter_min_keep_points: 200
+intensity_prefilter_adaptive_enable: true
+intensity_prefilter_adaptive_keep_ratio: 0.80
+intensity_prefilter_adaptive_frames: 20
+
+# ---------- 5. 静止 & last_pose 写入策略 ----------
+stationary_speed_thresh: 0.02
+stationary_min_duration: 2.0
+
+# ---------- 6. DR 累计距离阈值 ----------
+dr_follow_dist_thresh: 5.0
+dr_fail_dist_thresh: 10.0
+dr_frame_fail_thresh: 300
+
+# ---------- 7. RViz 手动初始化：Temporal Grace ----------
+temporal_grace_enable: true
+temporal_grace_duration: 0.8
+
+# ---------- 8. 发布时间戳消毒（bag stamp 异常用） ----------
+stamp_max_skew_sec: 0.20
+stamp_future_tol_sec: 0.05
+stamp_monotonic_eps_sec: 0.000001
+
+# ---------- 9. RViz 辅助话题 ----------
+viz_publish_scan_cloud: false
+viz_scan_cloud_topic: "scan_cloud_map"
+
+# ---------- 10. LocalReloc (FCSM/BnB seed for re-localization) ----------
+local_reloc_enable: true
+local_reloc_map_yaml: ""
+local_reloc_xy_range_m: 10.0
+local_reloc_yaw_range_deg: 180.0
+local_reloc_min_score: 0.20
+local_reloc_score_margin: 0.02
+local_reloc_min_valid_fraction: 0.30
+local_reloc_pyr_max_level: 6
+local_reloc_bnb_max_level: 5
+local_reloc_yaw_step_deg: 1.0
+local_reloc_max_scan_points: 1200
+local_reloc_scan_voxel_m: 0.02
+local_reloc_hit_sigma_m: 0.20
+local_reloc_max_dist_m: 1.00
+
+# ---------- 11. RelocalizationManager (trigger logic) ----------
+reloc_mgr_enable: true
+reloc_mgr_cooldown_sec: 1.0
+reloc_mgr_fail_xy_range_m: 10.0
+reloc_mgr_fail_yaw_range_deg: 20.0
+reloc_mgr_manual_xy_min_m: 10.0
+reloc_mgr_manual_xy_sigma_k: 3.0
+reloc_mgr_manual_yaw_min_deg: 180.0
+reloc_mgr_manual_yaw_sigma_k: 3.0
+reloc_mgr_max_attempts: 5
+
+# ---------- 12. Input Watchdog (topic stall / drop) ----------
+watchdog_enable: true
+watchdog_require_scan: true
+watchdog_require_odom: true
+watchdog_require_imu: true
+watchdog_timer_hz: 10.0
+watchdog_scan_warn_sec: 0.10
+watchdog_scan_fail_sec: 0.50
+watchdog_odom_warn_sec: 0.10
+watchdog_odom_fail_sec: 0.50
+watchdog_imu_warn_sec: 0.10
+watchdog_imu_fail_sec: 0.50
+watchdog_fail_hold_sec: 0.0
+
+# ---------- 13. Dynamic point filter (scan->static) ----------
+dyn_filter_enable: true
+dyn_grid_res_m: 0.10
+dyn_inflate_m: 0.20
+dyn_padding_m: 5.0
+dyn_keep_ratio: 0.80
+dyn_min_keep_points: 200
+dyn_hard_max_dist_m: 2.0
+dyn_ray_enable: true
+dyn_ray_margin_near_m: 0.20
+dyn_ray_max_range_m: 35.0
+dyn_ray_hit_eps_m: -1.0
+dyn_ray_max_steps: 256
+dyn_ray_confirm_df_m: 0.15
+dyn_ray_step_m: -1.0
+dyn_front_protect_enable: true
+dyn_front_protect_x_min_m: 0.10
+dyn_front_protect_x_max_m: 3.00
+dyn_front_protect_abs_y_max_m: 0.80
+dyn_front_protect_use_y_axis: false
+dyn_front_protect_forward_sign: 1.0
+dyn_front_protect_max_drop_ratio: 0.45
+dyn_front_protect_min_in_points: 12
+

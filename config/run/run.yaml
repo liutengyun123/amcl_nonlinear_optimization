@@ -1,0 +1,11 @@
+map: ''
+run_target: 1
+--启动列表--:
+- id: 1
+  map: abtr_f
+- id: 2
+  map: abtr251229_9
+- id: 3
+  map: runda
+- id: 4
+  map: abtr_ref

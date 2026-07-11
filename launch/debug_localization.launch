@@ -1,0 +1,12 @@
+<launch>
+  <param name="use_sim_time" value="true"/>
+  <arg name="viz_publish_scan_cloud" default="true"/>
+ <arg name="viz_scan_cloud_topic" default="scan_cloud_map"/>
+  <node pkg="localization_ndt"
+        type="ndt_localizer_node"
+        name="ndt_localizer"
+        output="screen">
+         <param name="viz_publish_scan_cloud" value="$(arg viz_publish_scan_cloud)"/>
+      <param name="viz_scan_cloud_topic" value="$(arg viz_scan_cloud_topic)"/>
+ </node>
+</launch>

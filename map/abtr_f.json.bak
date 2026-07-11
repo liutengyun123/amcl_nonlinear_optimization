@@ -1,0 +1,284 @@
+{
+  "reflectors": [
+    {
+      "x": 3.37465,
+      "y": 6.35718,
+      "mean_intensity": 255,
+      "observations": 400,
+      "total_points": 2804,
+      "rms_radius": 0.016714
+    },
+    {
+      "x": 3.36535,
+      "y": 6.70332,
+      "mean_intensity": 255,
+      "observations": 151,
+      "total_points": 1533,
+      "rms_radius": 0.01691
+    },
+    {
+      "x": 3.37611,
+      "y": 8.16291,
+      "mean_intensity": 255,
+      "observations": 127,
+      "total_points": 1385,
+      "rms_radius": 0.006079
+    },
+    {
+      "x": 3.37078,
+      "y": 8.50362,
+      "mean_intensity": 255,
+      "observations": 136,
+      "total_points": 1422,
+      "rms_radius": 0.005387
+    },
+    {
+      "x": 3.18854,
+      "y": 11.1859,
+      "mean_intensity": 255,
+      "observations": 150,
+      "total_points": 1416,
+      "rms_radius": 0.007781
+    },
+    {
+      "x": 3.18797,
+      "y": 11.5542,
+      "mean_intensity": 255,
+      "observations": 155,
+      "total_points": 1426,
+      "rms_radius": 0.007656
+    },
+    {
+      "x": 3.2369,
+      "y": 12.2956,
+      "mean_intensity": 255,
+      "observations": 161,
+      "total_points": 1282,
+      "rms_radius": 0.011771
+    },
+    {
+      "x": 3.46416,
+      "y": 9.64066,
+      "mean_intensity": 255,
+      "observations": 17,
+      "total_points": 98,
+      "rms_radius": 0.004148
+    },
+    {
+      "x": 3.24061,
+      "y": 12.6472,
+      "mean_intensity": 255,
+      "observations": 192,
+      "total_points": 1348,
+      "rms_radius": 0.017962
+    },
+    {
+      "x": 3.87636,
+      "y": 16.5971,
+      "mean_intensity": 255,
+      "observations": 90,
+      "total_points": 538,
+      "rms_radius": 0.01242
+    },
+    {
+      "x": 4.99415,
+      "y": 16.6121,
+      "mean_intensity": 255,
+      "observations": 120,
+      "total_points": 938,
+      "rms_radius": 0.007617
+    },
+    {
+      "x": 3.19363,
+      "y": 15.2222,
+      "mean_intensity": 255,
+      "observations": 115,
+      "total_points": 724,
+      "rms_radius": 0.013542
+    },
+    {
+      "x": 3.2019,
+      "y": 14.8795,
+      "mean_intensity": 255,
+      "observations": 70,
+      "total_points": 520,
+      "rms_radius": 0.008165
+    },
+    {
+      "x": 8.00122,
+      "y": 16.6631,
+      "mean_intensity": 255,
+      "observations": 123,
+      "total_points": 981,
+      "rms_radius": 0.006417
+    },
+    {
+      "x": 10.6678,
+      "y": 16.6508,
+      "mean_intensity": 255,
+      "observations": 112,
+      "total_points": 565,
+      "rms_radius": 0.01027
+    },
+    {
+      "x": 17.8694,
+      "y": 14.203,
+      "mean_intensity": 255,
+      "observations": 1047,
+      "total_points": 6482,
+      "rms_radius": 0.021482
+    },
+    {
+      "x": 17.8616,
+      "y": 14.5446,
+      "mean_intensity": 255,
+      "observations": 1053,
+      "total_points": 8013,
+      "rms_radius": 0.020821
+    },
+    {
+      "x": 17.8944,
+      "y": 13.3542,
+      "mean_intensity": 255,
+      "observations": 258,
+      "total_points": 1703,
+      "rms_radius": 0.016047
+    },
+    {
+      "x": 16.1217,
+      "y": 16.7974,
+      "mean_intensity": 255,
+      "observations": 553,
+      "total_points": 7804,
+      "rms_radius": 0.008659
+    },
+    {
+      "x": 17.8934,
+      "y": 13.025,
+      "mean_intensity": 255,
+      "observations": 164,
+      "total_points": 1185,
+      "rms_radius": 0.007834
+    },
+    {
+      "x": 17.8395,
+      "y": 11.4949,
+      "mean_intensity": 255,
+      "observations": 120,
+      "total_points": 879,
+      "rms_radius": 0.009441
+    },
+    {
+      "x": 17.827,
+      "y": 11.8341,
+      "mean_intensity": 255,
+      "observations": 121,
+      "total_points": 838,
+      "rms_radius": 0.008476
+    },
+    {
+      "x": 19.8482,
+      "y": 6.13006,
+      "mean_intensity": 255,
+      "observations": 126,
+      "total_points": 1278,
+      "rms_radius": 0.010693
+    },
+    {
+      "x": 20.1879,
+      "y": 6.1336,
+      "mean_intensity": 255,
+      "observations": 135,
+      "total_points": 1331,
+      "rms_radius": 0.010079
+    },
+    {
+      "x": 23.5443,
+      "y": 6.19878,
+      "mean_intensity": 255,
+      "observations": 104,
+      "total_points": 1017,
+      "rms_radius": 0.009376
+    },
+    {
+      "x": 23.8866,
+      "y": 6.20653,
+      "mean_intensity": 255,
+      "observations": 97,
+      "total_points": 924,
+      "rms_radius": 0.008765
+    },
+    {
+      "x": 26.9031,
+      "y": 8.74938,
+      "mean_intensity": 255,
+      "observations": 173,
+      "total_points": 988,
+      "rms_radius": 0.014602
+    },
+    {
+      "x": 26.2104,
+      "y": 13.1607,
+      "mean_intensity": 255,
+      "observations": 151,
+      "total_points": 1397,
+      "rms_radius": 0.012193
+    },
+    {
+      "x": 26.1995,
+      "y": 13.4933,
+      "mean_intensity": 255,
+      "observations": 177,
+      "total_points": 1584,
+      "rms_radius": 0.014198
+    },
+    {
+      "x": 23.9642,
+      "y": 16.9318,
+      "mean_intensity": 255,
+      "observations": 161,
+      "total_points": 1435,
+      "rms_radius": 0.014826
+    },
+    {
+      "x": 26.1905,
+      "y": 14.3679,
+      "mean_intensity": 255,
+      "observations": 159,
+      "total_points": 1469,
+      "rms_radius": 0.012384
+    },
+    {
+      "x": 26.1859,
+      "y": 14.7114,
+      "mean_intensity": 255,
+      "observations": 162,
+      "total_points": 1430,
+      "rms_radius": 0.012935
+    },
+    {
+      "x": 26.167,
+      "y": 15.8896,
+      "mean_intensity": 255,
+      "observations": 122,
+      "total_points": 1090,
+      "rms_radius": 0.010132
+    },
+    {
+      "x": 26.1602,
+      "y": 16.2311,
+      "mean_intensity": 255,
+      "observations": 104,
+      "total_points": 922,
+      "rms_radius": 0.009615
+    },
+    {
+      "x": 20.7449,
+      "y": 16.862,
+      "mean_intensity": 255,
+      "observations": 86,
+      "total_points": 737,
+      "rms_radius": 0.007806
+    }
+  ]
+}

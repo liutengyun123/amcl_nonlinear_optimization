@@ -1,0 +1,18 @@
+<robot name="sensors">
+    <link name="ABTRTEST/base_footprint" />
+    <link name="ABTRTEST/laser" />
+    <link name="ABTRTEST/imu" />
+      
+        <joint name="laser_joint" type="fixed">
+            <parent link="ABTRTEST/base_footprint" />
+            <child link="ABTRTEST/laser" />
+            <origin xyz="0.40046 -0.00203 0" rpy="0 0 -0.00053" />
+        </joint>
+    
+        <joint name="imu_joint" type="fixed">
+            <parent link="ABTRTEST/base_footprint" />
+            <child link="ABTRTEST/imu" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </joint>
+    
+    </robot>

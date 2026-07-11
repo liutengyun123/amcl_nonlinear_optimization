@@ -1,0 +1,10 @@
+<launch>
+  <arg name="use_sim_time" default="true"/>
+
+  <param name="use_sim_time" value="$(arg use_sim_time)"/>
+
+  <node pkg="localization_ndt"
+        type="amcl_localizer_node"
+        name="amcl_localizer"
+        output="screen"/>
+</launch>

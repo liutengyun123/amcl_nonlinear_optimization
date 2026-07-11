@@ -1,0 +1,17 @@
+<robot name="sensors">
+    <link name="Y991B020189BC0018/base_footprint" />
+    <link name="Y991B020189BC0018/laser" />
+    <link name="Y991B020189BC0018/imu" />
+
+        <joint name="laser_joint" type="fixed">
+            <parent link="Y991B020189BC0018/base_footprint" />
+            <child link="Y991B020189BC0018/laser" />
+            <origin xyz="0.41874 0.00048 0" rpy="0 0 0.00651" />
+        </joint>
+    
+        <joint name="imu_joint" type="fixed">
+            <parent link="Y991B020189BC0018/base_footprint" />
+            <child link="Y991B020189BC0018/imu" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </joint>
+    </robot>

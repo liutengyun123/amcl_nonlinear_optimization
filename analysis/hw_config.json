@@ -1,0 +1,289 @@
+{
+    "chassis": {
+        "lift_max_height": 320,
+        "lift_min_height": 245,
+        "lift_tolerance": 5,
+        "lift_zero_position": 245,
+        "param_default_radius_m": 0.085,
+        "param_default_radius_m_left": 0.084841,
+        "param_default_radius_m_right": 0.084754,
+        "param_default_two_wheel_space": 0.584659,
+        "tray_zero_offset": -0.135,
+        "calibration_pick": true,
+        "calibration_wheel": true,
+        "calibration_tray": true,
+        "dtc_string": [
+            "calibration_pick",
+            "calibration_wheel",
+            "calibration_tray"
+        ],
+        "dtc_code": [
+            "10627",
+            "10628",
+            "10629"
+        ]
+    },
+    "sensors_tf": [
+        {
+            "calibration": true,
+            "dtc_code": [
+                "10642"
+            ],
+            "enable": 1,
+            "frame_id": "up_camera",
+            "id": "up_camera",
+            "name": "up_camera_pallet",
+            "orientation": {
+                "pitch": 0,
+                "roll": 0,
+                "yaw": 3.14
+            },
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "type": "up_camera"
+        },
+        {
+            "enable": 1,
+            "frame_id": "camera",
+            "id": "code_reader_slam",
+            "orientation": {
+                "pitch": 0.0,
+                "roll": 0.0,
+                "yaw": 0.0
+            },
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "type": "code_reader",
+            "calibration": true,
+            "name": "DownCamera",
+            "dtc_code": [
+                "10633"
+            ]
+        },
+        {
+            "enable": 1,
+            "frame_id": "odom",
+            "id": "odom",
+            "orientation": {
+                "pitch": 0,
+                "roll": 0,
+                "yaw": 0.0
+            },
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0
+            },
+            "type": "odom",
+            "calibration": true,
+            "name": "Ready_odom",
+            "dtc_code": [
+                "10631"
+            ]
+        },
+        {
+            "enable": 1,
+            "frame_id": "code_reader_1",
+            "id": "code_reader_1",
+            "orientation": {
+                "pitch": 0.0,
+                "roll": 0.0,
+                "yaw": 0.0
+            },
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "type": "code_reader",
+            "calibration": true,
+            "name": "UpCamera",
+            "dtc_code": [
+                "10632"
+            ]
+        },
+        {
+            "enable": 1,
+            "frame_id": "laser_0",
+            "id": "laser_0",
+            "orientation": {
+                "pitch": 0,
+                "roll": 0,
+                "yaw": 3.14
+            },
+            "position": {
+                "x": -0.408,
+                "y": 0,
+                "z": 0
+            },
+            "type": "safety_lidar",
+            "calibration": true,
+            "name": "Back_obstacleLaser",
+            "dtc_code": [
+                "10623"
+            ]
+        },
+        {
+            "enable": 1,
+            "frame_id": "laser",
+            "id": "laser",
+            "orientation": {
+                "pitch": 0,
+                "roll": 0,
+                "yaw": -0.00053
+            },
+            "position": {
+                "x": 0.40046,
+                "y": -0.00203,
+                "z": 0
+            },
+            "type": "slam_lidar",
+            "calibration": true,
+            "name": "NavigationLaser",
+            "dtc_code": [
+                "10619"
+            ]
+        },
+        {
+            "enable": 1,
+            "frame_id": "/berxel_camera1/Cam_base_link",
+            "id": "tof_front",
+            "orientation": {
+                "pitch": -0.07,
+                "roll": 3.14,
+                "yaw": 0.0
+            },
+            "position": {
+                "x": 0.43,
+                "y": 0.0,
+                "z": 0.07
+            },
+            "type": "depth_camera",
+            "calibration": true,
+            "name": "Front_TOF",
+            "dtc_code": [
+                "10625"
+            ]
+        },
+        {
+            "enable": 0,
+            "frame_id": "/berxel_camera2/Cam_base_link",
+            "id": "tof_back",
+            "orientation": {
+                "pitch": -0.08,
+                "roll": 3.14,
+                "yaw": 3.14
+            },
+            "position": {
+                "x": -0.43,
+                "y": 0.0,
+                "z": 0.07
+            },
+            "type": "depth_camera",
+            "calibration": true,
+            "name": "Back_TOF",
+            "dtc_code": [
+                "10626"
+            ]
+        },
+        {
+            "enable": 1,
+            "frame_id": "imu",
+            "id": "imu",
+            "orientation": {
+                "pitch": 0,
+                "roll": 0,
+                "yaw": 0
+            },
+            "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+            },
+            "type": "imu",
+            "calibration": true,
+            "name": "Ready_imu",
+            "dtc_code": [
+                "10630"
+            ]
+        },
+        {
+            "calibration": true,
+            "dtc_code": [
+                "10642"
+            ],
+            "enable": 1,
+            "frame_id": "tray",
+            "id": "tray",
+            "name": "tray",
+            "orientation": {
+                "pitch": 0.0,
+                "roll": 0.0,
+                "yaw": 3.14159
+            },
+            "position": {
+                "x": 0.012940584681928158,
+                "y": 0.021830790676176548,
+                "z": 0.0
+            },
+            "type": "tray",
+            "parent_frame_id": "upcamera"
+        },
+        {
+            "frame_id": "downcamera",
+            "enable": 1,
+            "id": "code_reader_slam",
+            "type": "code_reader",
+            "position": {
+                "x": -0.0051556,
+                "y": 0.0006948,
+                "z": 0.0
+            },
+            "orientation": {
+                "roll": -3.1415927,
+                "pitch": 0.0,
+                "yaw": -3.138381
+            },
+            "calibration": true,
+            "name": "DownCamera",
+            "dtc_code": [
+                "10633"
+            ]
+        },
+        {
+            "frame_id": "upcamera",
+            "id": "up_camera",
+            "type": "camera",
+            "enable": 1,
+            "position": {
+                "x": 0.0043204,
+                "y": -0.0159134,
+                "z": 0.0
+            },
+            "orientation": {
+                "roll": 0.0,
+                "pitch": 0.0,
+                "yaw": -3.133285
+            },
+            "calibration": true,
+            "name": "up_camera",
+            "dtc_code": [
+                "10632"
+            ]
+        }
+    ],
+    "tof_back": {
+        "serial_no": "P100QYB3C06D1B089",
+        "usb_port": 1
+    },
+    "tof_front": {
+        "serial_no": "P100QYB3C06D1B030",
+        "usb_port": 2
+    }
+}

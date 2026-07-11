@@ -1,0 +1,47 @@
+<package format="2">
+  <name>localization_ndt</name>
+  <version>0.0.1</version>
+  <description>NDT-based localization node</description>
+
+  <maintainer email="you@example.com">Your Name</maintainer>
+  <license>BSD</license>
+  <license>LGPL-2.1-or-later</license>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>pcl_ros</build_depend>
+  <build_depend>pcl_conversions</build_depend>
+  <build_depend>laser_geometry</build_depend>
+  <build_depend>ndt_omp</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>tf2_ros</build_depend>
+  <build_depend>tf2</build_depend>
+  <build_depend>roslib</build_depend>
+  <build_depend>localization_msgs</build_depend>
+  <build_depend>diagnostic_msgs</build_depend>
+  <build_depend>map_server</build_depend>
+  <build_depend>opencv2</build_depend>
+
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>pcl_ros</exec_depend>
+  <exec_depend>pcl_conversions</exec_depend>
+  <exec_depend>laser_geometry</exec_depend>
+  <exec_depend>ndt_omp</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>tf2_ros</exec_depend>
+  <exec_depend>tf2</exec_depend>
+  <exec_depend>roslib</exec_depend>
+  <exec_depend>localization_msgs</exec_depend>
+  <exec_depend>diagnostic_msgs</exec_depend>
+  <exec_depend>loc_manager</exec_depend>
+  <exec_depend>map_server</exec_depend>
+  <exec_depend>opencv2</exec_depend>
+
+  <export/>
+</package>

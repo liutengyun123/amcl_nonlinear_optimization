@@ -1,0 +1,9 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# catkin build outputs
+/build/
+/devel/
+/install/
+/logs/

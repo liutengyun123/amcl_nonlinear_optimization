@@ -1,0 +1,4 @@
+pending: {name: "", x: 0, y: 0, yaw: 0, priority: 0}
+poses:
+  - {name: origin, x: 0, y: 0, yaw: 0, priority: 11}
+  - {name: origin, x: 20.63, y: -8.16, yaw: 0, priority: 9}

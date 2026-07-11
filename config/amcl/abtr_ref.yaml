@@ -1,0 +1,209 @@
+# ============================================================
+# AMCL 定位参数
+# - 对应地图: abtr_ref
+# - 这里只放 AMCL 算法参数
+# - 话题 / frame 配置见 config/interface/interface.yaml
+# ============================================================
+
+# ---------- 1. 发布相关 ----------
+publish_tf: true
+publish_map: true
+publish_particlecloud: false
+publish_map_to_odom_tf: false
+particlecloud_max_samples: 200
+viz_publish_scan_cloud: true
+viz_scan_cloud_topic: amcl_scan_cloud
+use_yaml_frame_id: false
+
+# ---------- 2. 启动与初始化 ----------
+# true: 启动后直接做全局撒点；false: 依赖 shutdown/last/fixed/use_initial_pose
+# 大场景建议默认关闭，只作为最后兜底选项
+global_init_on_startup: false
+# true: 使用下面的 initial_pose_* 作为第一个初始化种子
+use_initial_pose: false
+initial_pose_x: 0.0
+initial_pose_y: 0.0
+initial_pose_yaw_deg: 0.0
+# 初始化种子验证：连续多少帧判定成功 / 失败
+init_validate_good_frames: 2
+init_validate_bad_frames: 3
+# 初始化阶段单独采用较宽松的验证门槛，不要求一上来达到运行期 GOOD
+init_accept_best_min: 0.70
+init_accept_ambiguity_ratio_max: 0.20
+init_accept_max_clusters: 80
+init_accept_overall_sigma_xy_max: 2.0
+init_reject_best_max: 0.20
+init_reject_cluster_min: 200
+init_reject_overall_sigma_xy_min: 5.0
+
+# ---------- 3. 扫描预处理 ----------
+scan_min_range: 0.5
+scan_max_range: 30.0
+scan_voxel_m: 0.03
+max_scan_points: 1500
+
+# ---------- 3.1 动态点云剔除 ----------
+dyn_filter_enable: true
+dyn_grid_res_m: 0.10
+dyn_inflate_m: 0.20
+dyn_padding_m: 5.0
+dyn_keep_ratio: 0.80
+dyn_min_keep_points: 200
+dyn_hard_max_dist_m: 2.0
+dyn_ray_enable: true
+dyn_ray_margin_near_m: 0.20
+dyn_ray_max_range_m: 35.0
+dyn_ray_hit_eps_m: -1.0
+dyn_ray_max_steps: 256
+dyn_ray_confirm_df_m: 0.15
+dyn_ray_step_m: -1.0
+dyn_front_protect_enable: true
+dyn_front_protect_x_min_m: 0.10
+dyn_front_protect_x_max_m: 3.00
+dyn_front_protect_abs_y_max_m: 0.80
+dyn_front_protect_use_y_axis: false
+dyn_front_protect_forward_sign: 1.0
+dyn_front_protect_max_drop_ratio: 0.45
+dyn_front_protect_min_in_points: 12
+
+# ---------- 4. 激光模型 ----------
+# 可选: likelihood_field / likelihood_field_prob
+laser_model_type: likelihood_field
+max_beams: 40
+laser_min_range: 0.0
+laser_max_range: 35.0
+sigma_hit: 0.20
+laser_likelihood_max_dist: 2.0
+z_hit: 0.95
+z_rand: 0.05
+do_beamskip: false
+beam_skip_distance: 0.5
+beam_skip_threshold: 0.3
+beam_skip_error_threshold: 0.9
+
+# ---------- 5. 运动模型 / 粒子滤波 ----------
+alpha1: 0.2
+alpha2: 0.2
+alpha3: 0.2
+alpha4: 0.2
+alpha5: 0.2
+min_particles: 200
+max_particles: 800
+pf_err: 0.05
+pf_z: 0.99
+recovery_alpha_fast: 0.0
+recovery_alpha_slow: 0.0
+resample_interval: 1
+update_min_d: 0.05
+update_min_a_deg: 2.0
+
+# ---------- 6. 初始协方差 ----------
+init_cov_xx: 0.25
+init_cov_yy: 0.25
+init_cov_aa: 0.068538919452
+
+# ---------- 7. 局部重定位公共参数 ----------
+# 以下参数由 manual / startup / lost_local / lost_fixed 共用
+local_reloc_min_score: 0.20
+local_reloc_score_margin: 0.00
+local_reloc_min_valid_fraction: 0.30
+local_reloc_bnb_max_level: 5
+local_reloc_pyr_max_level: 6
+local_reloc_max_scan_points: 1200
+local_reloc_scan_voxel_m: 0.02
+local_reloc_hit_sigma_m: 0.20
+local_reloc_max_dist_m: 1.00
+local_reloc_min_range: 0.0
+local_reloc_max_range: 0.0
+local_reloc_yaw_step_deg: 1.0
+# 统一搜索窗口：manual / startup / lost 都使用这一组
+# local_reloc_yaw_search_deg 为“半窗口角度”，180 表示全周搜索
+local_reloc_xy_range_m: 5.0
+local_reloc_yaw_search_deg: 180.0
+# local_reloc 成功后，额外强制做多少帧真实 scan 的 sensor update（即使车没动）
+local_reloc_settle_frames: 3
+
+# ---------- 8. 手动局部重定位 ----------
+manual_local_reloc_enable: true
+# 先用固定大窗 coarse 搜索，再用下面的协方差窗 fine 精修
+manual_local_reloc_coarse_xy_range_m: 5.0
+manual_local_reloc_coarse_yaw_search_deg: 180.0
+# 手动拖拽保留旧版语义：根据 initialpose 协方差自适应搜索窗口
+manual_local_reloc_xy_min_m: 0.30
+manual_local_reloc_xy_sigma_k: 3.0
+manual_local_reloc_xy_max_m: 5.0
+manual_local_reloc_yaw_min_deg: 6.0
+manual_local_reloc_yaw_sigma_k: 3.0
+# coarse/fine 成功后，再用更小窗口做一次 final refine
+manual_local_reloc_final_xy_range_m: 0.50
+manual_local_reloc_final_yaw_search_deg: 10.0
+manual_local_reloc_final_yaw_step_deg: 0.25
+# 手动局部重定位成功后，用于收紧 PF 的重置协方差
+manual_local_reloc_reseed_sigma_scale: 0.05
+manual_local_reloc_reseed_xy_min_m: 0.05
+manual_local_reloc_reseed_yaw_min_deg: 2.0
+
+# ---------- 9. 启动自动局部重定位 ----------
+# 对 shutdown / last / fixed 这类启动 seed 先在公共窗口内精修一次
+startup_local_reloc_enable: true
+# fixed 候选批量尝试：每帧最多尝试多少个 fixed 候选
+startup_max_candidates_per_scan: 3
+# fixed 全量遍历失败后，停稳多久并每隔多久重新开启一次 fixed 遍历周期
+startup_fixed_retry_interval_sec: 2.0
+startup_fixed_retry_stationary_min_duration: 2.0
+
+# ---------- 10. LOST 自动局部重定位 ----------
+# 围绕 last_good + odom 推进后的 DR 中心做局部重定位
+lost_local_reloc_enable: true
+# LOST 期间每隔多少秒尝试一次局部重定位
+lost_local_reloc_min_interval_sec: 2.0
+# 连续失败后，搜索窗按该倍率放大
+lost_local_reloc_expand_factor: 1.5
+# 最多放大多少次（0 表示不放大）
+lost_local_reloc_max_expansions: 1
+
+# ---------- 11. LOST_FIXED 批量恢复 ----------
+# LOST_LOCAL 扩窗失败后，停稳再按 fixed 列表做批量恢复
+lost_fixed_reloc_enable: true
+lost_fixed_min_interval_sec: 2.0
+lost_fixed_max_candidates_per_scan: 3
+lost_fixed_stationary_min_duration: 2.0
+
+# ---------- 12. 自动局部重定位成功后，用于收紧 PF 的重置协方差 ----------
+auto_local_reloc_reseed_sigma_scale: 0.25
+auto_local_reloc_reseed_xy_min_m: 0.05
+auto_local_reloc_reseed_yaw_min_deg: 2.0
+
+# ---------- 13. 状态机：GOOD 判定 ----------
+state_good_best_min: 0.98
+state_good_ambiguity_ratio_max: 0.10
+state_good_max_clusters: 1
+state_good_overall_sigma_xy_max: 0.60
+state_good_best_sigma_yaw_deg_max: 15.0
+state_good_jump_trans_max: 0.10
+state_good_jump_yaw_deg_max: 1.0
+
+# ---------- 14. 状态机：AMBIGUOUS / LOST 判定 ----------
+state_ambiguous_min_clusters: 2
+state_ambiguous_best_min: 0.20
+state_ambiguous_ratio_min: 0.35
+state_lost_best_max: 0.20
+state_lost_cluster_min: 20
+state_lost_overall_sigma_xy_min: 2.0
+
+# ---------- 15. 状态机滞回 ----------
+state_good_enter_frames: 2
+state_weak_enter_frames: 2
+state_ambiguous_enter_frames: 2
+state_lost_enter_frames: 2
+
+# ---------- 16. last 位姿写回策略 ----------
+# 仅在 GOOD + 静止持续一段时间后写回 last.yaml
+last_pose_stationary_linear_speed_max: 0.05
+last_pose_stationary_angular_speed_deg_max: 3.0
+last_pose_stationary_min_duration: 2.0
+
+# ---------- 17. 运行辅助 ----------
+odom_history_max_age_sec: 2.0
+odom_history_max_size: 400
+tf_lookup_timeout_sec: 0.02

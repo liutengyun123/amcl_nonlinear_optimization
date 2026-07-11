@@ -1,0 +1,4 @@
+scan_topic: /scan
+odom_topic: /odom/wheel
+imu_topic: /imu
+base_frame_id: base_footprint
